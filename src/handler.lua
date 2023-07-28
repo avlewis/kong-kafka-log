@@ -36,6 +36,8 @@ local function log(premature, conf, message)
   end
 end
 
+--debug
+
 function KongKafkaLogHandler:log(conf)
   local message = basic_serializer.serialize(ngx, nil, conf)
   local ok, err = ngx.timer.at(0, log, conf, message)
